@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: background
+    uniqueID: 2050932647
+    locked: 0
+  - name: substrate
+    uniqueID: 2607779057
+    locked: 0
+  - name: tank-components
+    uniqueID: 330442691
+    locked: 0
+  - name: livestock
+    uniqueID: 412081525
+    locked: 0
