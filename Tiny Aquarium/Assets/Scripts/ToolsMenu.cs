@@ -18,13 +18,11 @@ public class ToolsMenu : MonoBehaviour
     void Start()
     {
         numMenuItems = transform.childCount - 1;
-        Debug.Log(numMenuItems);
         menuItems = new ToolsMenuItem[numMenuItems];
 
         for(int i = 0; i < numMenuItems; i++) {
             menuItems[i] = transform.GetChild(i+1).GetComponent<ToolsMenuItem>();
         }
-        Debug.Log(menuItems);
 
         mainButton = transform.GetChild(0).GetComponent<Button>();
         mainButton.onClick.AddListener(ToggleMenu);
