@@ -53,3 +53,6 @@ TagManager:
   - name: livestock
     uniqueID: 412081525
     locked: 0
+  - name: UI
+    uniqueID: 1844190583
+    locked: 0
