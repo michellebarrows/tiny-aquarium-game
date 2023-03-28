@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-
-[RequireComponent(typeof(Image))]
-public class TabButtons : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
+public class SelectableTab : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
 {
     public TabGroup tabGroup;
-    public Image panel;
 
     public void OnPointerClick(PointerEventData eventData) {
         tabGroup.OnTabSelected(this);
@@ -23,7 +21,6 @@ public class TabButtons : MonoBehaviour, IPointerEnterHandler, IPointerClickHand
     }
 
     void Start() {
-        background = GetComponent<Image>();
         tabGroup.Subscribe(this);
     }
 }

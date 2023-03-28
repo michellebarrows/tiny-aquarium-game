@@ -1,39 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class TabGroup : MonoBehaviour
 {
-    public List<TabButton> tabButtons;
-    public Sprite tabIdle;
-    public Sprite tabHover;
-    public Sprite tabActive;
+    public List<SelectableTab> tabButtons;
+    public SelectableTab selectedTab;
+    public List<GameObject> pages;
 
-    public void Subscribe(TabButton button) {
+    public void Subscribe(SelectableTab button) {
         if(tabButtons == null) {
-            tabButtons = new List<TabButton>();
+            tabButtons = new List<SelectableTab>();
         }
+
         tabButtons.Add(button);
     }
 
-    public void OnTabEnter(TabButton button) {
-        ResetTabs();
-        button.background.sprite = tabHover;
+    public void OnTabEnter(SelectableTab button) {
+
     }
 
-    public void OnTabExit(TabButton button) {
-        ResetTabs();
-    } 
-
-    public void OnTabSelected(TabButton button) {
-        ResetTabs();
-        button.background.sprite = tabActive;
+    public void OnTabExit(SelectableTab button) {
+        
     }
 
-    public void ResetTabs() {
-        foreach(TabButton button in tabButtons) {
-            button.background.sprite = tabIdle; 
+    public void OnTabSelected(SelectableTab button) {
+        selectedTab = button;
+
+        int index = button.transform.GetSiblingIndex();
+        for(int i = 0; i < pages.Count; i++) {
+            if (i == index) {
+                pages[i].SetActive(true);
+            }
+            else {
+                pages[i].SetActive(false);
+            }
         }
     }
+
 }
