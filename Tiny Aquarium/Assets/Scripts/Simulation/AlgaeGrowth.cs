@@ -16,12 +16,6 @@ public class AlgaeGrowth : MonoBehaviour
         }
     }
 
-    
-    void Update()
-    {
-       
-    }
-
     IEnumerator AlgaeGrowthRoutine(Image image) {
         float elapsedTime = 0.0f;
         Color c = image.color;
