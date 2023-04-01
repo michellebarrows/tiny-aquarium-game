@@ -16,26 +16,25 @@ public class FoodButton : MonoBehaviour
     }
 
     void Update() {
+        //spawn food on click if button is active
         if(isActive && Input.GetMouseButtonDown(0)) {
             Vector3 mousePos = Input.mousePosition;
-            Instantiate(foodObject, mousePos, foodObject.transform.rotation);
+            Vector3 spawnPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
+            Instantiate(foodObject, spawnPos, Quaternion.identity);
         }
     }
 
     //called on food button click
     public void FoodActive() {
+        //swap active value
         isActive = !isActive;
 
+        //swap sprite
         if(isActive) {
-            //change sprite to cancel sprite
             GetComponent<Image>().sprite = cancelSprite;
-            //spawn fish food on click
         }
-
         else {
-            //change sprite to default sprite
             GetComponent<Image>().sprite = defaultSprite;
-            //stop spawning food
         }
     }
 }
