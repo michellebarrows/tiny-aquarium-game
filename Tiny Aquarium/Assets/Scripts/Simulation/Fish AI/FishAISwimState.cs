@@ -19,7 +19,7 @@ public class FishAISwimState : FishAIState
         //change random position every few seconds
         if(timer > waitTime) {
             timer = 0f;
-            waitTime = Random.Range(1, 10);
+            waitTime = Random.Range(10, 20);
             RandomPosition();
         }
 
@@ -31,7 +31,7 @@ public class FishAISwimState : FishAIState
             fishAI.ChangeState(fishAI.eatState);
         }
         //else randomly go idle
-        float randomNumber = Random.Range(1, 10);
+        float randomNumber = Random.Range(1, 100);
         if(randomNumber >= 3) {
             fishAI.ChangeState(fishAI.idleState);
         }   
