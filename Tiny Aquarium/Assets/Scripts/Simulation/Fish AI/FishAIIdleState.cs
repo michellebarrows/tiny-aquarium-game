@@ -18,7 +18,7 @@ public class FishAIIdleState : FishAIState
             fishAI.ChangeState(fishAI.eatState);
         }
         //else start swimming after a few seconds
-        if(timer > 3f) {
+        if(timer > Random.Range(1, 10)) {
             timer = 0f;
             fishAI.ChangeState(fishAI.swimState);
         }

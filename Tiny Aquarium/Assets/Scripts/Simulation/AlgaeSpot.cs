@@ -7,21 +7,39 @@ public class AlgaeSpot : MonoBehaviour
 {
     public GameObject spongeButton;
     public Button AlgaeOnClick; 
+    float elapsedTime = 0.0f;
+    public float growthTime = 30f;
 
     void Start() {
         AlgaeOnClick.onClick.AddListener(AlgaeOnClick_onClick);
+        StartCoroutine(AlgaeGrowthRoutine(GetComponent<Image>()));
     }
 
     public void ResetTransparency() {
         Image image = GetComponent<Image>();
         Color c = image.color;
         c.a = 0f;
-        image.color = c; 
+        image.color = c;
+        elapsedTime = 0f; 
     }
 
     void AlgaeOnClick_onClick() {
         if(spongeButton.GetComponent<SpongeButton>().IsActive()) {
             ResetTransparency();
+        }
+    }
+
+        IEnumerator AlgaeGrowthRoutine(Image image) {
+        Color c = image.color;
+
+        while(true) {
+            yield return null;
+            elapsedTime += Time.deltaTime;
+            c.a = Mathf.Clamp01(elapsedTime / growthTime);
+            if(c.a > 1f) {
+                c.a = 1f;
+            }
+            image.color = c;
         }
     }
 }

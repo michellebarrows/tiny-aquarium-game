@@ -5,18 +5,21 @@ using UnityEngine;
 public class FishAISwimState : FishAIState
 {
     Vector3 swimVector; 
+    float waitTime;
 
     public FishAISwimState(FishAI fishAI) : base(fishAI) {}
 
     public override void BeginState() {
         //get initial random position
         RandomPosition();
+        waitTime = Random.Range(1, 10);
     }
 
     public override void UpdateState() {
         //change random position every few seconds
-        if(timer > 5f) {
+        if(timer > waitTime) {
             timer = 0f;
+            waitTime = Random.Range(1, 10);
             RandomPosition();
         }
 

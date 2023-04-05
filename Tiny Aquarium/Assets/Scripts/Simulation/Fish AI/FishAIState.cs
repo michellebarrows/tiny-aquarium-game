@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class FishAIState
 {
     protected FishAI fishAI;
-    public float timer;
+    public float timer = 0f;
 
     public FishAIState(FishAI newAI) {
         fishAI = newAI;
