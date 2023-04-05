@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class AlgaeGrowth : MonoBehaviour
 {
     public List<Image> algaeSpots;
-    public float growthTime = 1800f;
+    public float growthTime;
     
     void Start()
     {

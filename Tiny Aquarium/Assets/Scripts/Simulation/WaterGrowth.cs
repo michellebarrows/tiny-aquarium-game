@@ -15,7 +15,7 @@ public class WaterGrowth : MonoBehaviour
     }
 
     IEnumerator WaterGrowthRoutine(Image image) {
-        float elapsedTime = 0.0f;
+        float elapsedTime = 10.0f;
         Color c = image.color;
 
         while(elapsedTime < growthTime) {
