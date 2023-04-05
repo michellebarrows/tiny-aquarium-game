@@ -6,18 +6,15 @@ using UnityEngine.UI;
 public class FoodButton : MonoBehaviour
 {
     public GameObject foodObject;
-    public Sprite cancelSprite;
-    public Sprite defaultSprite;
-
-    bool isActive;
+    ToolsMenuItem menuItem;
 
     void Start() {
-        isActive = false;
+        menuItem = GetComponent<ToolsMenuItem>();
     }
 
     void Update() {
         //spawn food on click if button is active
-        if(isActive && Input.GetMouseButtonDown(0)) {
+        if(menuItem.IsActive() && Input.GetMouseButtonDown(0)) {
             Vector3 mousePos = Input.mousePosition;
             Vector3 spawnPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
             if(ClickIsValid(spawnPos)) {
@@ -29,15 +26,14 @@ public class FoodButton : MonoBehaviour
     //called on food button click
     public void FoodActive() {
         //swap active value
-        isActive = !isActive;
-
+        menuItem.SetActive(!menuItem.IsActive());
         //swap sprite
-        if(isActive) {
-            GetComponent<Image>().sprite = cancelSprite;
+        if(menuItem.IsActive()) {
+            menuItem.SetToActiveSprite();
         }
         else {
-            GetComponent<Image>().sprite = defaultSprite;
-        }
+            menuItem.SetToDefaultSprite();
+        } 
     }
 
     bool ClickIsValid(Vector3 position) {

@@ -5,37 +5,22 @@ using UnityEngine.UI;
 
 public class SpongeButton : MonoBehaviour
 {
-    public Sprite cancelSprite;
-    public Sprite defaultSprite;
-
-    public bool isActive;
+    ToolsMenuItem menuItem;
 
     void Start() {
-        isActive = false;
-    }
-
-    void Update() {
-        //erase algae on click if button is active
-        if(isActive && Input.GetMouseButtonDown(0)) {
-            //erase
-        }
+        menuItem = GetComponent<ToolsMenuItem>();
     }
 
     //called on sponge button click
     public void SpongeActive() {
         //swap active value
-        isActive = !isActive;
-
+        menuItem.SetActive(!menuItem.IsActive());
         //swap sprite
-        if(isActive) {
-            GetComponent<Image>().sprite = cancelSprite;
+        if(menuItem.IsActive()) {
+            menuItem.SetToActiveSprite();
         }
         else {
-            GetComponent<Image>().sprite = defaultSprite;
-        }
-    }
-
-    public bool IsActive() {
-        return isActive;
+            menuItem.SetToDefaultSprite();
+        } 
     }
 }

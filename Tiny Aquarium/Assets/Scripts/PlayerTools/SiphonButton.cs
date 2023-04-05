@@ -5,20 +5,17 @@ using UnityEngine.UI;
 
 public class SiphonButton : MonoBehaviour
 {
-    public Sprite cancelSprite;
-    public Sprite defaultSprite;
+    ToolsMenuItem menuItem;
 
     public GameObject water;
 
-    bool isActive;
-
     void Start() {
-        isActive = false;
+        menuItem = GetComponent<ToolsMenuItem>();
     }
 
     void Update() {
         //lower water on click if button is active
-        if(isActive && Input.GetMouseButtonDown(0)) {
+        if(menuItem.IsActive() && Input.GetMouseButtonDown(0)) {
             //lower water
         }
     }
@@ -26,14 +23,13 @@ public class SiphonButton : MonoBehaviour
     //called on siphon button click
     public void SiphonActive() {
         //swap active value
-        isActive = !isActive;
-
+        menuItem.SetActive(!menuItem.IsActive());
         //swap sprite
-        if(isActive) {
-            GetComponent<Image>().sprite = cancelSprite;
+        if(menuItem.IsActive()) {
+            menuItem.SetToActiveSprite();
         }
         else {
-            GetComponent<Image>().sprite = defaultSprite;
-        }
+            menuItem.SetToDefaultSprite();
+        } 
     }
 }

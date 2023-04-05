@@ -25,7 +25,7 @@ public class AlgaeSpot : MonoBehaviour
 
     //called when sponge button is active and algae is clicked
     void AlgaeOnClick_onClick() {
-        if(spongeButton.GetComponent<SpongeButton>().IsActive()) {
+        if(spongeButton.GetComponent<ToolsMenuItem>().IsActive()) {
             ResetTransparency();
         }
     }

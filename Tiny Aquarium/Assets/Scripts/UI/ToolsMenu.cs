@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class ToolsMenu : MonoBehaviour
 {
     [Header ("Menu Item Spacing")]
-    [SerializeField] Vector2 spacing;
+    public Vector2 spacing;
 
     Button mainButton;
     ToolsMenuItem[] menuItems;
     bool isExpanded = false;
+    ToolsMenuItem activeButton;
 
     Vector2 mainButtonPosition;
     int numMenuItems;
@@ -19,6 +20,7 @@ public class ToolsMenu : MonoBehaviour
     {
         numMenuItems = transform.childCount - 1;
         menuItems = new ToolsMenuItem[numMenuItems];
+        activeButton = null;
 
         for(int i = 0; i < numMenuItems; i++) {
             menuItems[i] = transform.GetChild(i+1).GetComponent<ToolsMenuItem>();
@@ -53,12 +55,25 @@ public class ToolsMenu : MonoBehaviour
         else {
             for(int i = 0; i < numMenuItems; i++) {
                 menuItems[i].transformComponent.position = mainButtonPosition;
+                menuItems[i].SetActive(false);
+                menuItems[i].SetToDefaultSprite();
             }
         }
     }
 
     void OnDestroy() {
         mainButton.onClick.RemoveListener(ToggleMenu);
+    }
+
+    //disable other tools when a tool is selected
+    public void ActiveButtonSet(ToolsMenuItem active) {
+        activeButton = active;
+        foreach (ToolsMenuItem item in menuItems) {
+            if(item != activeButton) {
+                item.SetActive(false);
+                item.SetToDefaultSprite();
+            }
+        }
     }
 
 }
