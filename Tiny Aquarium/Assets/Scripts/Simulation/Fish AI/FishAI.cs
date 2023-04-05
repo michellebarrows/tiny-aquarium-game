@@ -7,7 +7,7 @@ public class FishAI : MonoBehaviour
     //fish components
     Rigidbody2D rigidBody;
     SpriteRenderer spriteRenderer;
-    public float speed = 2.5f; 
+    public float speed = 2f; 
     public GameObject targetFood;
 
     //state components
@@ -54,6 +54,10 @@ public class FishAI : MonoBehaviour
         if(collider.tag == "Food") {
             Destroy(collider.gameObject);
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        spriteRenderer.flipX = true;
     }
 
     public void Swim(Vector3 offset) {

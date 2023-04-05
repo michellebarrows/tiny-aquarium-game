@@ -15,7 +15,7 @@ public class FishAISwimState : FishAIState
 
     public override void UpdateState() {
         //change random position every few seconds
-        if(timer > 3f) {
+        if(timer > 5f) {
             timer = 0f;
             RandomPosition();
         }
@@ -35,6 +35,6 @@ public class FishAISwimState : FishAIState
     }
 
     public void RandomPosition() {
-        swimVector = (new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0));
+        swimVector = (new Vector3(Random.Range(-7f, 7f), Random.Range(-.5f, .5f), 0));
     }
 }
