@@ -8,7 +8,7 @@ public class AlgaeSpot : MonoBehaviour
     public GameObject spongeButton;
     public Button AlgaeOnClick; 
     float elapsedTime = 0.0f;
-    public float growthTime = 30f;
+    public float growthTime = 1800f;
 
     void Start() {
         AlgaeOnClick.onClick.AddListener(AlgaeOnClick_onClick);
@@ -23,13 +23,15 @@ public class AlgaeSpot : MonoBehaviour
         elapsedTime = 0f; 
     }
 
+    //called when sponge button is active and algae is clicked
     void AlgaeOnClick_onClick() {
         if(spongeButton.GetComponent<SpongeButton>().IsActive()) {
             ResetTransparency();
         }
     }
 
-        IEnumerator AlgaeGrowthRoutine(Image image) {
+    //algae growth over growth time
+    IEnumerator AlgaeGrowthRoutine(Image image) {
         Color c = image.color;
 
         while(true) {

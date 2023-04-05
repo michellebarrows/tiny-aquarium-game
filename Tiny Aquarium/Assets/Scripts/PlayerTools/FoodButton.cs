@@ -20,7 +20,9 @@ public class FoodButton : MonoBehaviour
         if(isActive && Input.GetMouseButtonDown(0)) {
             Vector3 mousePos = Input.mousePosition;
             Vector3 spawnPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, 10));
-            Instantiate(foodObject, spawnPos, Quaternion.identity);
+            if(ClickIsValid(spawnPos)) {
+                Instantiate(foodObject, spawnPos, Quaternion.identity);
+            }
         }
     }
 
@@ -36,5 +38,16 @@ public class FoodButton : MonoBehaviour
         else {
             GetComponent<Image>().sprite = defaultSprite;
         }
+    }
+
+    bool ClickIsValid(Vector3 position) {
+        //valid x coordinates
+        if(position.x >= -7f && position.x <= 7f) {
+            //valid y coordinates
+            if(position.y >= -3f && position.y <= 3f) {
+                return true;
+            }
+        }
+        return false;
     }
 }
