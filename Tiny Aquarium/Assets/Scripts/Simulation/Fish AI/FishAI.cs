@@ -31,7 +31,7 @@ public class FishAI : MonoBehaviour
         idleState = new FishAIIdleState(this);
         swimState = new FishAISwimState(this);
         eatState = new FishAIEatState(this);
-        currentState = idleState;
+        currentState = swimState;
     }
 
     void FixedUpdate()
