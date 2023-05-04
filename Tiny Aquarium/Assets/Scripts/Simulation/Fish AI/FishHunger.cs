@@ -14,7 +14,7 @@ public class FishHunger : MonoBehaviour
     void Update() {
         hungerScore += Time.deltaTime;
 
-        if(hungerScore >= 10f) {
+        if(hungerScore >= 60f) {
             indicator.SetActive(true);
         }
     }
