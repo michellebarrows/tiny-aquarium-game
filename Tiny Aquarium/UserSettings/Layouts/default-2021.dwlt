@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1460
     height: 988
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Scene
   m_RootView: {fileID: 6}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 73
+  controlID: 94
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -68,8 +68,8 @@ MonoBehaviour:
     y: 0
     width: 313
     height: 938
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 74
+  controlID: 100
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 75
+  controlID: 101
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -317,22 +317,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts/Simulation/Fish AI
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Simulation/Fish AI
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Michelle\Documents\GitHub\tiny-aquarium-game\Tiny Aquarium
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 106}
-    m_SelectedIDs: 266f0000
-    m_LastClickedID: 28454
-    m_ExpandedIDs: 00000000746c0000cc72000056770000e8780000b2800000ce87000000ca9a3b
+    scrollPos: {x: 0, y: 60}
+    m_SelectedIDs: 466b0000
+    m_LastClickedID: 27462
+    m_ExpandedIDs: 000000003a6b0000486b0000506b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -360,7 +360,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000746c0000
+    m_ExpandedIDs: 000000003a6b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -490,7 +490,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 2afbffff4e69000058690000fe6a00009c6b0000a66b0000
+      m_ExpandedIDs: 74a4ffff18a5ffff22a5ffffaea5ffffd8a7ffffd2a9ffffa4abffff48acffffc4aeffff50afffffe0b6ffff82b7fffffeb9ffff8abaffff34bdffffe2c7ffffd8c8ffff50caffff70f5ffff7cf5ffff7ef5ffff14fbffffa88e00004a9000008c900000e89000003291000004920000b092000032930000a2b00000c2b00000f4b00000c4b100007cb20000fab600006ac200008ac20000bcc200009edd000008de000014ed000032ed0000fcf10000cef80000eef8000020f90000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -794,9 +794,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.8429589, y: 0.8977842, z: 371.10248}
+    m_Target: {x: 0.1587049, y: -0.33187845, z: 361.15762}
     speed: 2
-    m_Value: {x: -0.93006766, y: 0.9958536, z: 387.81143}
+    m_Value: {x: -0.27049533, y: -0.74228704, z: 346.5314}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -847,9 +847,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 7.8842635
+    m_Target: 11.24122
     speed: 2
-    m_Value: 8.255774
+    m_Value: 10.757149
   m_Ortho:
     m_Target: 1
     speed: 2
