@@ -9,6 +9,7 @@ public class FishAI : MonoBehaviour
     SpriteRenderer spriteRenderer;
     public float speed = 2f; 
     public GameObject targetFood;
+    public FishHunger hunger;
 
     //state components
     FishAIState currentState;
@@ -53,6 +54,7 @@ public class FishAI : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collider) {
         if(collider.tag == "Food") {
             Destroy(collider.gameObject);
+            hunger.ResetHunger();
         }
     }
 

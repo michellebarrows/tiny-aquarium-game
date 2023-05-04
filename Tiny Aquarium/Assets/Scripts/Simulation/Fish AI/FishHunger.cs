@@ -4,28 +4,23 @@ using UnityEngine;
 
 public class FishHunger : MonoBehaviour
 {
-    public GameObject foodObject;
-    public float hungerTime = 90f;
+    float hungerScore;
+    public GameObject indicator;
 
     void Start() {
-
+        hungerScore = 0f;
     }
 
     void Update() {
+        hungerScore += Time.deltaTime;
 
+        if(hungerScore >= 10f) {
+            indicator.SetActive(true);
+        }
     }
 
-    IEnumerator HungerRoutine() {
-        Color c = image.color;
-
-        while(true) {
-            yield return null;
-            elapsedTime += Time.deltaTime;
-            c.a = Mathf.Clamp01(elapsedTime / growthTime);
-            if(c.a > 1f) {
-                c.a = 1f;
-            }
-            image.color = c;
-        }
+    public void ResetHunger() {
+        hungerScore = 0f;
+        indicator.SetActive(false);
     }
 }
