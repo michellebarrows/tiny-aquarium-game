@@ -4,9 +4,16 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+[RequireComponent(typeof(Image))]
 public class SelectableTab : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
 {
     public TabGroup tabGroup;
+    public Image background;
+    
+    void Start() {
+        background = GetComponent<Image>();
+        tabGroup.Subscribe(this);
+    }
 
     public void OnPointerClick(PointerEventData eventData) {
         tabGroup.OnTabSelected(this);
@@ -18,9 +25,5 @@ public class SelectableTab : MonoBehaviour, IPointerEnterHandler, IPointerClickH
 
     public void OnPointerExit(PointerEventData eventData) {
         tabGroup.OnTabExit(this);
-    }
-
-    void Start() {
-        tabGroup.Subscribe(this);
     }
 }

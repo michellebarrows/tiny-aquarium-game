@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class FishHunger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public GameObject foodObject;
+    public float hungerTime = 90f;
+
+    void Start() {
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+
+    }
+
+    IEnumerator HungerRoutine() {
+        Color c = image.color;
+
+        while(true) {
+            yield return null;
+            elapsedTime += Time.deltaTime;
+            c.a = Mathf.Clamp01(elapsedTime / growthTime);
+            if(c.a > 1f) {
+                c.a = 1f;
+            }
+            image.color = c;
+        }
     }
 }

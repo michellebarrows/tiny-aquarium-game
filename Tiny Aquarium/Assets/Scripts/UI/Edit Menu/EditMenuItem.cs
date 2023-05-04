@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class EditMenuItem : MonoBehaviour
 {
-    public CanvasGroup editMenu;
+    public GameObject editMenu;
     public GameObject tooltip;
     public GameObject itemToSpawn;
     public bool canSpawnMultiple;
@@ -24,7 +24,7 @@ public class EditMenuItem : MonoBehaviour
                 Instantiate(itemToSpawn, spawnPos, Quaternion.identity);
                 //deactivate spawns if only one item is allowed
                 if(!canSpawnMultiple) {
-                    spawningActive = false;
+                    CancelItem();
                 }
             }
         }
@@ -33,9 +33,10 @@ public class EditMenuItem : MonoBehaviour
     //called when an item is clicked (duh lol)
     public void ItemClicked() {
         //hide menu without disabling this component
-        editMenu.alpha = 0;
-        editMenu.interactable = false;
-        editMenu.blocksRaycasts = false;
+        CanvasGroup canvas = editMenu.GetComponent<CanvasGroup>();
+        canvas.alpha = 0;
+        canvas.interactable = false;
+        canvas.blocksRaycasts = false;
         
         spawningActive = true;
         tooltip.SetActive(true);
@@ -53,7 +54,12 @@ public class EditMenuItem : MonoBehaviour
     }
 
     public void CancelItem() {
+        //turn off spawns
         spawningActive = false;
         tooltip.SetActive(false);
+
+        //disable edit menu
+        editMenu.SetActive(false);
+        
     }
 }

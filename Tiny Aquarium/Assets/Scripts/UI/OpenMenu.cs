@@ -10,6 +10,7 @@ public class OpenMenu : MonoBehaviour
         if(menu != null) {
             bool isOpen = menu.activeSelf;
             menu.SetActive(!isOpen);
+            
             //reset visibility
             if(isOpen) {
                 menu.GetComponent<CanvasGroup>().alpha = 1;
