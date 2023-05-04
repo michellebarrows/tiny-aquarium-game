@@ -5,7 +5,6 @@ TagManager:
   serializedVersion: 2
   tags:
   - Food
-  - Music
   layers:
   - Default
   - TransparentFX
