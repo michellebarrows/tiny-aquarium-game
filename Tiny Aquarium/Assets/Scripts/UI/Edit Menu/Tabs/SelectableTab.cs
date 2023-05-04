@@ -16,6 +16,7 @@ public class SelectableTab : MonoBehaviour, IPointerEnterHandler, IPointerClickH
     }
 
     public void OnPointerClick(PointerEventData eventData) {
+        GetComponent<AudioSource>().Play();
         tabGroup.OnTabSelected(this);
     }
 
