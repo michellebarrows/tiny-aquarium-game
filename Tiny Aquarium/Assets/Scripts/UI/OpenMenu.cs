@@ -8,8 +8,8 @@ public class OpenMenu : MonoBehaviour
 
     public void OpenMenuOnClick() {
         if(menu != null) {
+            menu.SetActive(!menu.activeSelf);
             bool isOpen = menu.activeSelf;
-            menu.SetActive(!isOpen);
             
             //reset visibility
             if(isOpen) {
